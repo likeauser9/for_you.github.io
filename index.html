@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для Насти</title>
+    <style>
+        @font-face {
+          font-family: "KINKEE";
+          src: url("fonts/KINKEE.TTF");
+        }      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* background: linear-gradient(135deg, #6a11cb, #2575fc); */
+            background-color: #FFD1DC;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            background: white;
+            border: 3px dashed #EFA94A;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 30px;
+            width: 400px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .card h1 {
+            font-size: 40px;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: "KINKEE", sans-serif;
+        }
+
+        .card img {
+            max-width: 100%;
+            border: 2px solid #FFC1CC;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card img:hover {
+            transform: scale(1.05);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .button-group button {
+            flex: 1;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            /* background: linear-gradient(135deg, #ff7e5f, #feb47b); */
+            background-color: #ff7e5f;
+            transition: transform 0.3s ease;
+            transition: 0.3s ease;
+        }
+
+        .button-group button:hover {
+            transform: translateY(-3px);
+            /* background: linear-gradient(135deg, #feb47b, #ff7e5f); */
+            background-color: #CCCCFF;
+            color: #ff7e5f;
+        }
+
+        #nobtn {
+            position: absolute;
+            width: 162px;
+        }
+
+        #yesbtn {
+            margin-left: 172px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Nastya, will you marry me?</h1>
+        <img src="img/rat.png" alt="img">
+        <div class="button-group">
+            <button id="yesbtn" onclick="nextPage()">Да</button>
+            <button id="nobtn" onmouseover="moveButton()" onclick="moveButton()">Нет</button>
+            <script>
+              function nextPage() {
+                window.location.href = "yes.html"
+              }
+        
+              function moveButton() {
+                var x = Math.random() * (window.innerWidth - document.getElementById('nobtn').offsetWidth - 85);
+                var y = Math.random() * (window.innerHeight - document.getElementById('nobtn').offsetHeight - 48);
+                document.getElementById('nobtn').style.left = `${x}px`;
+                document.getElementById('nobtn').style.top = `${y}px`;
+              }
+            </script>
+        </div>
+    </div>
+    <!-- https://via.placeholder.com/400x200 -->
+</body>
+</html>
